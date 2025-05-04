@@ -50,6 +50,7 @@ pip install -r requirem
 - After setting up the virtual environment and installing the dependencies, you can run the game:
 
 ```
+cd src
 python main.py
 ```
 

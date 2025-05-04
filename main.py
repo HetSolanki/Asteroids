@@ -40,8 +40,8 @@ def main():
                 sys.exit()
             for shoot in shoots:
                 if shoot.hasCollision(asteroid):
-                    asteroid.split()
                     shoot.kill()
+                    asteroid.split()
                 
         screen.fill("black")
         for x in drawable:

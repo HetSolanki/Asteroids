@@ -7,7 +7,9 @@ from asteroidfield import *
 
 def main():
     pygame.init()
+
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    pygame.display.set_caption("Asteroids")
     clock = pygame.time.Clock()
 
     dt = 0
@@ -26,8 +28,18 @@ def main():
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     
     Shot.containers = (shoots, updatable, drawable)
+    score = 0
+    font = pygame.font.Font(None, 40)
+    text = font.render("Score:", True, (135, 206, 235))
+
+    background = pygame.image.load("space.jpg").convert()
+    background = pygame.transform.scale(background, (SCREEN_WIDTH, SCREEN_HEIGHT))
+    
+    explode = pygame.image.load("explode1.png").convert_alpha()
+    explode = pygame.transform.scale(explode, (50, 50))
 
     while True: 
+        screen.blit(background, (0, 0))
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
@@ -41,9 +53,12 @@ def main():
             for shoot in shoots:
                 if shoot.hasCollision(asteroid):
                     shoot.kill()
+                    score += 2
+                    text = font.render(f"Score: {score}", True, (135, 206, 235))
                     asteroid.split()
+                    screen.blit(explode, asteroid.position)
                 
-        screen.fill("black")
+        screen.blit(text, (SCREEN_WIDTH / 2 - 40, 10))
         for x in drawable:
             x.draw(screen)
 

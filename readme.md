@@ -60,4 +60,7 @@ python main.py
   - Arrow Keys to move the spaceship.
   - Spacebar to shoot asteroids.
 
+### Feedback
+- Feedback is always welcome! If you have any suggestions or issues, feel free to open an issue or submit a pull request. Your input helps improve the game!
+
 

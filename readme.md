@@ -13,7 +13,7 @@ Follow the steps below to set up the project on your local machine:
 Clone the repository to your local machine:
 
 ```bash
-git clone <repository_url>
+git clone https://github.com/HetSolanki/Asteroids
 cd Asteroids
 ```
 
